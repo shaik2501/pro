@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Tutor</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>AI Tutor - Custom Video Generator</h1>
+
+    <form action="/generate" method="POST">
+      <input type="text" name="text1" placeholder="Enter text1" required />
+      <input type="text" name="text2" placeholder="Enter text2" required />
+      <input type="text" name="text3" placeholder="Enter text3" required />
+      <input type="text" name="text4" placeholder="Enter text4" required />
+      <button type="submit">Generate Video</button>
+    </form>
+
+    <% if (videoUrl) { %>
+      <h3>Generated Video:</h3>
+      <video width="100%" controls autoplay>
+        <source src="<%= videoUrl %>" type="video/mp4" />
+      </video>
+    <% } %>
+
+    <% if (error) { %>
+      <p style="color:red;"><%= error %></p>
+    <% } %>
+  </div>
+</body>
+</html>
